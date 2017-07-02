@@ -49,11 +49,11 @@
     setTimeout(function () {
       each(paths, function loading(path, force) {
         if (path === null) return callback()
-        
+
         if (!force && !/^https?:\/\//.test(path) && scriptpath) {
           path = (path.indexOf('.js') === -1) ? scriptpath + path + '.js' : scriptpath + path;
         }
-        
+
         if (scripts[path]) {
           if (id) ids[id] = 1
           return (scripts[path] == 2) ? callback() : setTimeout(function () { loading(path, true) }, 0)
@@ -76,7 +76,7 @@
       scripts[path] = 2
       fn()
     }
-    el.async = 1
+    el.async = 1;
     el.src = urlArgs ? path + (path.indexOf('?') === -1 ? '?' : '&') + urlArgs : path;
     head.insertBefore(el, head.lastChild)
   }

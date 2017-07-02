@@ -4,7 +4,7 @@ script('../node_modules/domready/ready.js', function () {
 
     sink('Basic', function(test, ok, before, after) {
 
-      test('should call from chained ready calls', 4, function() {
+      /*test('should call from chained ready calls', 4, function() {
 
         script.ready('jquery', function() {
           ok(true, 'loaded from ready callback')
@@ -90,7 +90,7 @@ script('../node_modules/domready/ready.js', function () {
           ok(typeof morpheus !== 'undefined', 'loaded morpheus.js from http')
         })
       })
-      
+
       test('passing urlArgs', 2, function () {
         script.urlArgs('key=value')
         script(['../demos/js/foo.js'], function() {
@@ -147,6 +147,13 @@ script('../node_modules/domready/ready.js', function () {
         })
         script(['../vendor/lab2.js', '../vendor/head.js'], function() {
           ok(true, 'lab2 and head have been loaded')
+        })
+    })*/
+
+      test('load remote turboscript.min.js', 2, function() {
+        script('https://rawgit.com/01alchemist/TurboScript/master/lib/turboscript.min.js', function() {
+          ok(true, 'turboscript loaded');
+          ok(window.turboscript !== undefined, 'turboscript has in window scope');
         })
       })
 
